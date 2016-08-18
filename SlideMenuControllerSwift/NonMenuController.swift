@@ -25,7 +25,7 @@ class NonMenuController: UIViewController {
   
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
-        coordinator.animateAlongsideTransition(nil, completion: { (context: UIViewControllerTransitionCoordinatorContext!) -> Void in
+        coordinator.animate(alongsideTransition: nil, completion: { (context: UIViewControllerTransitionCoordinatorContext!) -> Void in
             guard let vc = (self.slideMenuController()?.mainViewController as? UINavigationController)?.topViewController else {
                 return
             }

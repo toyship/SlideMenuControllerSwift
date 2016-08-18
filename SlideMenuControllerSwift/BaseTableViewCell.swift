@@ -32,7 +32,7 @@ public class BaseTableViewCell : UITableViewCell {
     
     public func setData(data: Any?) {
         self.backgroundColor = UIColor(hex: "F1F8E9")
-        self.textLabel?.font = UIFont.italicSystemFontOfSize(18)
+        self.textLabel?.font = UIFont.italicSystemFont(ofSize: 18)
         self.textLabel?.textColor = UIColor(hex: "9E9E9E")
         if let menuText = data as? String {
             self.textLabel?.text = menuText
