@@ -97,12 +97,12 @@ extension LeftViewController : UITableViewDelegate {
 }
 
 extension LeftViewController : UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menus.count
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let menu = LeftMenu(rawValue: indexPath.item) {
             switch menu {
@@ -115,7 +115,7 @@ extension LeftViewController : UITableViewDataSource {
         return UITableViewCell()
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    private func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let menu = LeftMenu(rawValue: indexPath.item) {
             self.changeViewController(menu: menu)
         }

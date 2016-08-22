@@ -10,12 +10,15 @@ import Foundation
 
 extension String {
     static func className(aClass: AnyClass) -> String {
-        return NSStringFromClass(aClass).componentsSeparatedByString(".").last!
+        return NSStringFromClass(aClass).components(separatedBy: ".").last!
     }
     
     func substring(from: Int) -> String {
-        return self.substringFromIndex(self.startIndex.advancedBy(from))
-    }
+        
+        let tempString = self as NSString
+        let sString = tempString.substring(from: from)
+        return sString as String
+     }
     
     var length: Int {
         return self.characters.count

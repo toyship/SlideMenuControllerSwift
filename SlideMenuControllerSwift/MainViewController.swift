@@ -17,9 +17,9 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         self.tableView.registerCellNib(cellClass: DataTableViewCell.self)
     }
-    
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator){
+        super.viewWillTransition(to: size, with: coordinator)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,11 +41,12 @@ extension MainViewController : UITableViewDelegate {
 }
 
 extension MainViewController : UITableViewDataSource {
+        
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.mainContens.count
     }
      
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: DataTableViewCell.identifier) as! DataTableViewCell
         let data = DataTableViewCellData(imageUrl: "dummy", text: mainContens[indexPath.row])
         cell.setData(data: data)

@@ -8,7 +8,7 @@
 import UIKit
 
 public class BaseTableViewCell : UITableViewCell {
-    class var identifier: String { return String.className(self) }
+    class var identifier: String { return String.className(aClass: self) }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -38,8 +38,9 @@ public class BaseTableViewCell : UITableViewCell {
             self.textLabel?.text = menuText
         }
     }
-    
-    override public func setHighlighted(highlighted: Bool, animated: Bool) {
+    //    open func setHighlighted(_ highlighted: Bool, animated: Bool) // animate between regular and highlighted state
+
+    override public func setHighlighted(_ highlighted: Bool, animated: Bool) {
         if highlighted {
             self.alpha = 0.4
         } else {
@@ -48,7 +49,7 @@ public class BaseTableViewCell : UITableViewCell {
     }
     
     // ignore the default handling
-    override public func setSelected(selected: Bool, animated: Bool) {
+    override public func setSelected(_ selected: Bool, animated: Bool) {
     }
   
 }
